@@ -13,21 +13,10 @@ input {
 
 button {
     font-size: 18px;
-    background: #333;
-    color:#eee;
     display:block;
     margin:0 auto;
     padding: 10px;
-    border:0;
-    transition: box-shadow 300ms;
 }
-button:hover {
-    box-shadow: 6px 6px 8px #000;
-}
-
-/*select{
-    background:#000; 
-}*/
 
 div#sDiv{
     text-align: center;
