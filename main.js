@@ -1,4 +1,4 @@
-let length, width, diagonal, ppi;
+let length, width, diagonal, ratio, ppi;
 let devicesData = [
     ['Mi 10', 2340, 1080, 6.67],
     ['Mi 10 Pro', 2340, 1080, 6.67],
@@ -35,19 +35,31 @@ let devicesData = [
     ['iPhone 11 Pro Max', 2688, 1242, 6.5],
 
 ]
-function getPPI() {
+function update() {
     length = document.querySelector('#length').value
     width = document.querySelector('#width').value
     diagonal = document.querySelector('#diagonal').value
-    ppi = Math.round((length ** 2 + width ** 2) ** 0.5 / diagonal)
-    document.querySelector('#ppi').innerHTML = ppi
+    calc()
 }
 function outputData() {
     if (list.selectedIndex)
         console.log(`${list.options[list.selectedIndex].value} : ${length} x ${width},${ppi} PPI`)
-    else if(ppi)
-        console.log(`${length} x ${width}, ${ppi} PPI`)  
+    else if (ppi)
+        console.log(`${length} x ${width}, ${ppi} PPI`)
     else
         throw 'Cannot get the PPI. Please check if you have input the required information. '
 }
+function getGCF(a, b) {
+    a > b ? true : [a, b] = [b, a]
+    for (let i = b; i > 0; i--)
+        if (a % i == 0 && b % i == 0)
+            return i
+}
 
+function calc(){
+    let gcf = getGCF(length, width)
+    ratio = `${length/gcf} : ${width/gcf}`
+    ppi = Math.round((length ** 2 + width ** 2) ** 0.5 / diagonal)
+    document.querySelector('#ppi').innerHTML = ppi
+    document.querySelector('#ratio').innerHTML = ratio
+}

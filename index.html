@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onkeyup="getPPI()">
+<body onkeyup="update()">
     <div id="sDiv">
         <select id="list">
             <option>Custom</option>
@@ -16,8 +16,9 @@
         <div>length(px)</div><input type="text" id="length">
         <div>width(px)</div><input type="text" id="width">
         <div>diagonal(in)</div><input type="text" id="diagonal">
-        <div>PPI :</div>
-        <div id="ppi">null</div>
+        <div>ratio :</div><div id="ratio">null</div>
+        <div>PPI :</div><div id="ppi">null</div>
+        
     </div>
     <button title="test" onclick="outputData()">Output the parameters in console</button>
     <script>
@@ -37,7 +38,7 @@
             document.querySelector('#length').value = devicesData[i][1]
             document.querySelector('#width').value = devicesData[i][2]
             document.querySelector('#diagonal').value = devicesData[i][3]
-            getPPI()
+            update()
         })
         window.addEventListener('keyup',function(event){
             if(/[0-9\.]/.test(event.key))
