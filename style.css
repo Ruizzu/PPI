@@ -3,7 +3,7 @@
     grid-template-columns: 320px 320px;
     width: 640px;
     font-size: 48px;
-    margin:100px auto 50px auto;
+    margin:0 auto 50px auto;
 }
 
 input {
@@ -20,4 +20,12 @@ button {
 
 div#sDiv{
     text-align: center;
+}
+
+select#list{
+    font-size:24px
+}
+
+#sDiv{
+    margin:50px auto 50px auto;
 }
