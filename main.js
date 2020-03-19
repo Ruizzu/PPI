@@ -50,10 +50,10 @@ function update() {
     calc()
 }
 function outputData() {
-    if (list.selectedIndex)
-        console.log(`${list.options[list.selectedIndex].value} : ${length} x ${width},${ppi} PPI`)
+    if (list.selectedIndex && bList.firstChild.value != 'unselected')
+        console.log(`${bList.options[bList.selectedIndex].value} : ${length} x ${width} (${ratio.replace(/ /g,'')}),${ppi} PPI`)
     else if (ppi)
-        console.log(`${length} x ${width}, ${ppi} PPI`)
+        console.log(`${length} x ${width} (${ratio.replace(/ /g,'')}), ${ppi} PPI`)
     else
         throw 'Cannot get the PPI. Please check if you have input the required information. '
 }
