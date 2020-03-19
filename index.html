@@ -11,38 +11,54 @@
         <select id="list">
             <option>Custom</option>
         </select>
+        <select id="bList" style="display:none">
+            <option>Custom</option>
+        </select>
     </div>
     <div id="container">
         <div>length(px)</div><input type="text" id="length">
         <div>width(px)</div><input type="text" id="width">
         <div>diagonal(in)</div><input type="text" id="diagonal">
-        <div>ratio :</div><div id="ratio">null</div>
-        <div>PPI :</div><div id="ppi">null</div>
-        
+        <div>ratio :</div>
+        <div id="ratio">null</div>
+        <div>PPI :</div>
+        <div id="ppi">null</div>
+
     </div>
     <button title="test" onclick="outputData()">Output the parameters in console</button>
     <script>
         let list = document.querySelector('#list')
+        let bList = document.querySelector('#bList')//meaning branch list
         for (let dd of devicesData) {
             let device = document.createElement('option');
             device.innerHTML = dd[0]
             list.appendChild(device)
         }
         list.addEventListener('change', function () {
-            let i;
-            if(list.selectedIndex === 0)
-                return
-            else for(i = 0;i < devicesData.length;i++)
-                if(list.options[list.selectedIndex].value == devicesData[i][0])
-                    break;
-            document.querySelector('#length').value = devicesData[i][1]
-            document.querySelector('#width').value = devicesData[i][2]
-            document.querySelector('#diagonal').value = devicesData[i][3]
+            bList.innerHTML = ''
+            if (list.selectedIndex === 0)
+                bList.style.display = 'none'
+            else {
+                bList.style.display = ''
+                for (let dd of devicesData[list.selectedIndex-1][1]) {
+                    let device = document.createElement('option');
+                    device.innerHTML = dd[0]
+                    bList.appendChild(device)
+                }
+            }
+
+        })
+        bList.addEventListener('change', function () {
+            document.querySelector('#length').value = devicesData[list.selectedIndex-1][1][bList.selectedIndex][1]
+            document.querySelector('#width').value = devicesData[list.selectedIndex-1][1][bList.selectedIndex][2]
+            document.querySelector('#diagonal').value = devicesData[list.selectedIndex-1][1][bList.selectedIndex][3]
             update()
         })
-        window.addEventListener('keyup',function(event){
-            if(/[0-9\.]/.test(event.key))
+        window.addEventListener('keyup', function (event) {
+            if (/[0-9\.]/.test(event.key)){
                 list.selectedIndex = 0
+                bList.style.display = 'none'
+            }
         })
     </script>
 </body>
