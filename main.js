@@ -56,7 +56,38 @@ let devicesData = [
             ['Surface Studio', 4500, 3000, 28],
             ['Surface Studio 2', 4500, 3000, 28]
         ]
-    ]
+    ],
+    ['iPad',
+        [
+            ['iPad', 2160, 1620, 10.2],
+            ['iPad Air', 2224, 1668, 10.5],
+            ['iPad 11”', 2388, 1668, 11],
+            ['iPad 12.9”', 2732, 2048, 12.9]
+        ]
+    ],
+    ['Watch',
+        [
+            ['Apple Watch Series 3 38mm', 340, 272, 1.496],
+            ['Apple Watch Series 3 42mm', 390, 312, 1.654],
+            ['Apple Watch Series 5 40mm', 394, 324, 1.575],
+            ['Apple Watch Series 5 44mm', 448, 368, 1.732],
+        ]
+    ],
+    ['VR',
+        [
+            ['HTC VIVE Cosmos', 1700, 1440, 3.4],
+            ['HTC VIVE Cosmos Elite', 1700, 1440, 3.4],
+            ['HTC VIVE Pro Eye', 1600, 1440, 3.5]
+        ]
+    ],
+    ['Television',
+        [
+            ['Redmi TV 98”', 3840, 2160, 98],
+            ['Redmi TV 70”', 3840, 2160, 70],
+            ['Art TV 65”', 3840, 2160, 65],
+            ['Mi TV All-Screen E55A', 3840, 2160, 55]
+        ]
+    ],
 ];
 
 function update() {
