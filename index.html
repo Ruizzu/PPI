@@ -29,15 +29,15 @@
     <button title="test" onclick="outputData()">Output the specs in console</button>
     <script>
         let list = document.querySelector('#list')
-        let bList = document.querySelector('#bList')//meaning branch list
+        let bList = document.querySelector('#bList') // meaning branch list
         for (let dd of devicesData) {
             let device = document.createElement('option');
             device.innerHTML = dd[0]
             list.appendChild(device)
-        }
+        }// initial children for the list
         list.addEventListener('change', function () {
             if (list.selectedIndex === 0)
-                bList.style.display = 'none'
+                bList.style.display = 'none' // turn to custom
             else {
                 bList.style.display = ''
                 bList.innerHTML = '<option>unselected</option>'
@@ -45,9 +45,8 @@
                     let device = document.createElement('option');
                     device.innerHTML = dd[0]
                     bList.appendChild(device)
-                }
+                } // initial devices for the branch list
             }
-
         })
         bList.addEventListener('change', function () {
             if(bList.firstChild.value === 'unselected')
@@ -56,13 +55,13 @@
             document.querySelector('#width').value = devicesData[list.selectedIndex-1][1][bList.selectedIndex][2]
             document.querySelector('#diagonal').value = devicesData[list.selectedIndex-1][1][bList.selectedIndex][3]
             update()
-        })
+        }) // delete the option titled unselected and update the specs when changing device
         window.addEventListener('keyup', function (event) {
             if (/[0-9\.]|(Backspace)/.test(event.key)){
                 list.selectedIndex = 0
                 bList.style.display = 'none'
             }
-        })
+        }) // turn to custom when input some data
     </script>
 </body>
 

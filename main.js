@@ -77,12 +77,12 @@ function outputData() {
 function getGCF(a, b) {
     a > b ? true : [a, b] = [b, a]
     for (let i = b; i > 0; i--)
-        if (a % i == 0 && b % i == 0)
+        if (a % i == b % i == 0)
             return i
 }
 
 function calc() {
-    let gcf = getGCF(length, width)
+    let gcf = getGCF(length, width) // The gcf means Greatest Common Factor
     ratio = `${length / gcf} : ${width / gcf}`
     ppi = Math.round((length ** 2 + width ** 2) ** 0.5 / diagonal)
     document.querySelector('#ppi').innerHTML = ppi
