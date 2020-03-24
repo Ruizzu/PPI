@@ -108,7 +108,7 @@ function outputData() {
 function getGCF(a, b) {
     a > b ? true : [a, b] = [b, a]
     for (let i = b; i > 0; i--)
-        if (a % i == b % i == 0)
+        if (a % i == 0 && b % i == 0)
             return i
 }
 
