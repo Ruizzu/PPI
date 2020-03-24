@@ -15,7 +15,9 @@ let devicesData = [
             ['Sony Xperia 5', 2520, 1080, 6.1],
             ['Sony Xperia 1', 3840, 1644, 6.5],
             ['Sony Xperia 10 Plus', 2520, 1080, 6.5],
-            ['Sony Xperia XZ3', 2880, 1440, 6]
+            ['Sony Xperia XZ3', 2880, 1440, 6],
+            ['OPPO Find X2', 3168, 1440, 6.7],
+            ['vivo NEX 3S', 2256, 1080, 6.89]
         ]
     ],
     ['iPhone',
@@ -40,6 +42,20 @@ let devicesData = [
             ['iPhone 11 Pro', 2436, 1125, 5.8],
             ['iPhone 11 Pro Max', 2688, 1242, 6.5]
         ]
+    ],
+    ['Surface',
+        [
+            ['Surface Go', 1800, 1200, 10],
+            ['Surface Book 2', 3000, 2000, 13.5],
+            ['Surface Laptop 2', 2256, 1504, 13.5],
+            ['Surface Laptop 3 13.5”', 2256, 1504, 13.5],
+            ['Surface Laptop 3 15”', 2496, 1664, 15],
+            ['Surface Pro 6', 2736, 1824, 12.3],
+            ['Surface Pro 7', 2736, 1824, 12.3],
+            ['Surface Pro X', 2880, 1920, 13],
+            ['Surface Studio', 4500, 3000, 28],
+            ['Surface Studio 2', 4500, 3000, 28]
+        ]
     ]
 ];
 
@@ -51,9 +67,9 @@ function update() {
 }
 function outputData() {
     if (list.selectedIndex && bList.firstChild.value != 'unselected')
-        console.log(`${bList.options[bList.selectedIndex].value} : ${length} x ${width} (${ratio.replace(/ /g,'')}),${ppi} PPI`)
+        console.log(`${bList.options[bList.selectedIndex].value} : ${length} x ${width} (${ratio.replace(/ /g, '')}),${ppi} PPI`)
     else if (ppi)
-        console.log(`${length} x ${width} (${ratio.replace(/ /g,'')}), ${ppi} PPI`)
+        console.log(`${length} x ${width} (${ratio.replace(/ /g, '')}), ${ppi} PPI`)
     else
         throw 'Cannot get the PPI. Please check if you have input the required information. '
 }
